@@ -37,91 +37,144 @@ body {
 /* ------------------------------- */
 /* ----- DOLE BUDE TVOJE CSS ----- */
 /* ------------------------------- */
+
 body {
     color: white;
 }
 
-.hlavni-recept {
-    background-image: url(images/salat.jpg);
+.recepty {
+    display: flex;
+    flex-direction: column;
+}
+
+.hlavni {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(images/salat.jpg); /*--------ZATMAVENI OBRAZKU*/
     min-height: 200px;
 }
 
-.recept2 {
-    background-image: url(images/chlebicek.jpg);
-}
-
-.recept3 {
-    background-image: url(images/tacos.jpg);
-}
-
-.recept4 {
-    background-image: url(images/cizrna.jpg);
-}
-
-.recept5 {
-    background-image: url(images/burger.jpg);
-}
-
-.recept {
+.maly {
     min-height: 90px;
 }
 
-.hlavni-recept, .recept {
+.svacina {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(images/chlebicek.jpg);
+}
+
+.mexicka {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(images/tacos.jpg);
+}
+
+.lusteniny {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(images/cizrna.jpg);
+}
+
+.burgery {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(images/burger.jpg);
+}
+
+.recept {
+    background-repeat: no-repeat; /*--------MUSI SE OBJEVIT AZ PO NASTAVENI POZADI NEBO U KAZDEHO POZADI ZVLAST*/
+    background-size: cover; /*--------------MUSI SE OBJEVIT AZ PO NASTAVENI POZADI NEBO U KAZDEHO POZADI ZVLAST*/
+    background-position: center; /*---------MUSI SE OBJEVIT AZ PO NASTAVENI POZADI NEBO U KAZDEHO POZADI ZVLAST*/
     padding: 10px;
-    background-size: cover;
-    background-position: center;
-    border-bottom: 1px solid white;
+    border: white 0.5px solid ;
+    /* position: relative;--------OBTEKANI+POZICOVANI*/
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.recept-nazev {
+p,
+h1 {
     margin: 0;
+    padding: 0;
 }
 
-.recept-meta {
-    display: flex;
-    justify-content: space-between;
+.typ, 
+.komentare {
+    font-size: 14px;
+    font-weight: 400;
+    flex: 1 1 50%;
 }
 
-@media (min-width: 540px) {
-    .hlavni-recept, .recept {
-        padding: 20px;
-    }
+/* .typ {                  
+    float: left;--------OBTEKANI+POZICOVANI
+}
+*/
 
-    .hlavni-recept {
-        min-height: 250px;
+.komentare {
+    text-align: right;
+}
+
+.nazev {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    /* position: absolute;--------OBTEKANI+POZICOVANI
+    bottom: 10px;-----------------NEVYHODA > MUSI SE MENIT PRI MEDIA QUERY ZVETSOVANI*/
+    flex: 1 1 100%;
+    align-self: flex-end;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.nazevhlavni {
+    font-size: 28px;
+}
+
+.nazevmaly {
+    font-size: 18px;
+}
+
+/*---------MEDIA QUERIES----------*/
+
+/*TABLET*/
+@media (min-width: 480px) {
+    .recept {
+        padding: 20px; 
     }
     
-    .recepty {
+    .malerecepty {
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
     }
     
-    .recept {
+    .hlavni {
+        min-height: 250px;
+    }
+    
+    .maly {
         min-height: 150px;
         flex: 1 1 50%;
     }
     
-    .recept:nth-child(2n+1) {
-        border-right: 1px solid white;
+    .nazevhlavni {
+        font-size: 36px;
     }
+    
+    .nazevmaly {
+        font-size: 22px;
+    }   
 }
 
-@media (min-width: 960px) { 
-    .doporucujeme {
-        display: flex;
+/*PC*/
+@media (min-width: 860px) {
+    .hlavni {
+        min-height: 400px;
     }
     
-    .hlavni-recept {
-        min-height: 400px;
-        flex-basis: 33.3%;
-        border-right: 1px solid white;
-    }
-
-    .recept {
+    .maly {
         min-height: 200px;
     }
+
+    .nazevhlavni {
+        font-size: 48px;
+    }
     
+    .nazevmaly {
+        font-size: 28px;
+    }
+
+    .recepty {
+        flex-direction: row;
+    }
 }
